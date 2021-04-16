@@ -4,6 +4,7 @@ import {
   HashRouter as Router, Switch, Route, Link, Redirect
 } from 'react-router-dom';
 import styled from 'styled-components';
+import Nav from './components/Nav';
 
 
 const Wrapper = styled.div`
@@ -14,17 +15,6 @@ const Wrapper = styled.div`
 const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
-`;
-
-const Nav = styled.nav`
-  border: 1px solid red;
-  > ul {
-    display: flex;
-    > li {
-      width: 33.3%;
-      text-align: center;
-      padding: 16px ;
-    }
 `;
 
 function App() {
@@ -48,20 +38,7 @@ function App() {
             </Route>
           </Switch>
         </Main>
-
-        <Nav>
-          <ul>
-            <li>
-              <Link to="/tags">标签页</Link>
-            </li>
-            <li>
-              <Link to="/money">记账页</Link>
-            </li>
-            <li>
-              <Link to="/statistics">统计页</Link>
-            </li>
-          </ul>
-        </Nav>
+        <Nav/>
       </Wrapper>
     </Router>
   );
