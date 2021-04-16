@@ -1,10 +1,13 @@
 import React from 'react';
 
 import {
-  HashRouter as Router, Switch, Route, Link, Redirect
+  HashRouter as Router, Switch, Route, Redirect
 } from 'react-router-dom';
-import Layout from './components/Layout';
 
+import Statistics from './views/Statistics';
+import Money from './views/Money';
+import Tags from './views/Tags';
+import NoMatch from './views/NoMatch';
 
 function App() {
   return (
@@ -25,40 +28,6 @@ function App() {
         </Route>
       </Switch>
     </Router>
-  );
-}
-
-function Statistics() {
-  return (
-    <Layout>
-     <h2>Statistics</h2>
-    </Layout>
-  );
-}
-
-function Tags() {
-  return (
-    <Layout>
-      <h2>Tags</h2>
-    </Layout>
-  );
-}
-
-function Money() {
-  return (
-    <Layout>
-      <h2>Money</h2>
-    </Layout>
-  );
-}
-
-function NoMatch() {
-  return (
-    <div>
-      <h3>
-        页面不存在 404
-      </h3>
-    </div>
   );
 }
 
