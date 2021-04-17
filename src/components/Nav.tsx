@@ -26,10 +26,12 @@ const NavWrapper = styled.nav`
           width: 24px;
           height: 24px;
         }
-        &.selected{
+
+        &.selected {
           color: red;
-          .icon{
-            fill:red;
+
+          .icon {
+            fill: red;
           }
         }
       }
@@ -42,21 +44,18 @@ const Nav = () => {
     <NavWrapper>
       <ul>
         <li>
-
-          <NavLink to="/tags" activeClassName="selected">
-            <Icon name="tags"/>
-            标签页
-          </NavLink>
-        </li>
-        <li>
-
           <NavLink to="/money" activeClassName="selected">
             <Icon name="bookkeeping"/>
             记账页
           </NavLink>
         </li>
         <li>
-
+          <NavLink to="/tags" activeClassName="selected">
+            <Icon name="tags"/>
+            标签页
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/statistics" activeClassName="selected">
             <Icon name="statistics"/>
             统计页

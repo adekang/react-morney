@@ -13,11 +13,11 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/tags">
-          <Tags/>
-        </Route>
         <Route path="/money">
           <Money/>
+        </Route>
+        <Route path="/tags">
+          <Tags/>
         </Route>
         <Route path="/statistics">
           <Statistics/>
