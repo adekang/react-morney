@@ -43,18 +43,23 @@ const TagsSection: React.FunctionComponent = () => {
   const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
 
+  // 新增 tag
   const onAddTag = () => {
     const tagName = window.prompt('新标签的名称为：');
     if (tagName !== null) {
       setTags([...tags, tagName]);
     }
   };
+
+  // 选中切换 tag
   const onToggleTag = (tag: string) => {
     const index = selectedTags.indexOf(tag);
     if (index >= 0) {
+      // 已被选中，取消选中
+      // 如果tag已被选中就复制所有没有被选中的 tag 作为新的selectedTags
       setSelectedTags(selectedTags.filter(t => t !== tag));
     } else {
-      // 被选中的tag
+      // 没有选中，增加选中
       setSelectedTags([...selectedTags, tag]);
     }
   };
@@ -66,8 +71,10 @@ const TagsSection: React.FunctionComponent = () => {
     <Wrapper>
       <ol>
         {tags.map(tag =>
-          <li key={tag} onClick={() => {onToggleTag(tag);}}
-              className={getClass(tag)}>{tag}</li>
+          <li key={tag}
+              onClick={() => {onToggleTag(tag);}}
+              className={getClass(tag)}>
+            {tag}</li>
         )}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
