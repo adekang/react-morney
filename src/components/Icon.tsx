@@ -6,7 +6,6 @@ let importAll = (requireContext: __WebpackModuleApi.RequireContext) => requireCo
 try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {console.log(error);}
 
 
-
 // 声明类型 类型大写
 type Props = {
   name: string
