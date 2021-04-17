@@ -23,9 +23,10 @@ const TagsSection = styled.section`
   > button {
     background: none;
     border: none;
-    padding: 0 4px;
+    padding: 2px 4px;
     border-bottom: 1px solid #999999;
     color: #999999;
+    margin-top: 8px;
   }
 `;
 const NotesSection = styled.section`
