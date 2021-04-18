@@ -37,12 +37,15 @@ const Wrapper = styled.section`
     margin-top: 8px;
   }
 `;
-
+type Props = {
+  value: string[],
+  onChange: (selected: string[]) => void
+}
 // 简写 FC
-const TagsSection: React.FunctionComponent = () => {
-  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+const TagsSection: React.FunctionComponent<Props> = (props) => {
 
+  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+  const selectedTags = props.value;
   // 新增 tag
   const onAddTag = () => {
     const tagName = window.prompt('新标签的名称为：');
@@ -57,10 +60,10 @@ const TagsSection: React.FunctionComponent = () => {
     if (index >= 0) {
       // 已被选中，取消选中
       // 如果tag已被选中就复制所有没有被选中的 tag 作为新的selectedTags
-      setSelectedTags(selectedTags.filter(t => t !== tag));
+      props.onChange(selectedTags.filter(t => t !== tag));
     } else {
       // 没有选中，增加选中
-      setSelectedTags([...selectedTags, tag]);
+      props.onChange([...selectedTags, tag]);
     }
   };
 
