@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import React, {useState} from 'react';
 
-const CategorySection = styled.section`
+const Wrapper = styled.section`
   font-size: 24px;
 
   > ul {
@@ -26,5 +27,27 @@ const CategorySection = styled.section`
     }
   }
 `;
+
+const CategorySection: React.FC = () => {
+  // hash 申明
+  const categoryMap = {'-': '支出', '+': '收入'};
+  // 将categoryMap的key作为类型
+  type Keys = keyof typeof categoryMap
+  const [categoryList] = useState<Keys[]>(['-', '+']);
+  const [category, setCategory] = useState('-');
+  return (
+    <Wrapper>
+      <ul>
+        {categoryList.map(c =>
+          <li key={c}
+              className={category === c ? 'selected' : ''}
+              onClick={() => {setCategory(c);}}>
+            {categoryMap[c]}
+          </li>
+        )}
+      </ul>
+    </Wrapper>
+  );
+};
 
 export {CategorySection};
