@@ -4,6 +4,7 @@ import {generateOutput} from '../NumberPadSection/generateOutput';
 
 const NumberPadSection: React.FC = () => {
     const [output, _setOutput] = useState<string>('0');
+    // 中转站 判断输入的长度
     const setOutput = (output: string) => {
       if (output.length > 16) {
         output = output.slice(0, 16);
