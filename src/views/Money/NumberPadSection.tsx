@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Wrapper} from '../NumberPadSection/Wrapper';
-import {generateOutput} from '../NumberPadSection/generateOutput';
+import {Wrapper} from './NumberPadSection/Wrapper';
+import {generateOutput} from './NumberPadSection/generateOutput';
 
 type  Props = {
   value: number,
