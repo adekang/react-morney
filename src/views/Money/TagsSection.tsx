@@ -46,15 +46,9 @@ type Props = {
 // 简写 FC
 const TagsSection: React.FunctionComponent<Props> = (props) => {
 
-  const {tags, setTags} = useTags();
+  const {tags,addTag} = useTags();
   const selectedTagIds = props.value;
-  // 新增 tag
-  const onAddTag = () => {
-    const tagName = window.prompt('新标签的名称为：');
-    if (tagName !== null) {
-      setTags([...tags, {id: createId(), name: tagName}]);
-    }
-  };
+
 
   // 选中切换 tag
   const onToggleTag = (tagId: number) => {
@@ -82,7 +76,7 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
             {tag.name}</li>
         )}
       </ol>
-      <button onClick={onAddTag}>新增标签</button>
+      <button onClick={addTag}>新增标签</button>
     </Wrapper>
   );
 };
