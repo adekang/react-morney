@@ -12,7 +12,6 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
-
 type Category = '-' | '+'
 
 const defaultFormData = {
@@ -24,15 +23,16 @@ const defaultFormData = {
 
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
+  const {addRecord} = useRecords();
   const onChange = (obj: Partial<typeof selected>) => {
     setSelected({...selected, ...obj});
   };
-  const {addRecord} = useRecords();
 
   const submit = () => {
-    addRecord(selected);
-    alert('保存成功');
-    setSelected(defaultFormData);
+    if (addRecord(selected)) {
+      alert('保存成功');
+      setSelected(defaultFormData);
+    }
   };
   return (
     <MyLayout>

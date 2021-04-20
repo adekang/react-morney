@@ -10,7 +10,7 @@ type  Props = {
 
 const NumberPadSection: React.FC<Props> = (props) => {
 
-    const [output, _setOutput] = useState(props.value.toString());
+    const [output, _setOutput] = useState(JSON.stringify(props.value));
     // 中转站 判断输入的长度
     const setOutput = (output: string) => {
       let newOutput: string;
@@ -31,6 +31,7 @@ const NumberPadSection: React.FC<Props> = (props) => {
       if (text === 'OK') {
         if (props.onOk) {
           props.onOk();
+          setOutput('')
         }
         return;
       }
