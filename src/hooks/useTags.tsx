@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react';
-import {createId} from './lib/createTd';
-import {useUpdate} from './hooks/useUpdate';
+import {useUpdate} from './useUpdate';
+import {createId} from '../lib/createTd';
 
 // 自定义Hook
 const useTags = () => {
