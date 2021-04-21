@@ -40,6 +40,7 @@ function Statistics() {
     const key = day(r.createdAt).format('YYYY年MM月DD日');
     if (!(key in hash)) {
       hash[key] = [];
+
     }
     hash[key].push(r);
   });

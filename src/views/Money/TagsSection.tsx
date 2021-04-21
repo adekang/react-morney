@@ -7,9 +7,10 @@ const Wrapper = styled.section`
   background-color: #FFFFFF;
   padding: 12px 16px;
   flex-grow: 1;
+  flex-shrink: 1;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: flex-start;
 
   > ol {
@@ -45,7 +46,7 @@ type Props = {
 // 简写 FC
 const TagsSection: React.FunctionComponent<Props> = (props) => {
 
-  const {tags,addTag} = useTags();
+  const {tags, addTag} = useTags();
   const selectedTagIds = props.value;
 
 
@@ -67,6 +68,7 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
 
   return (
     <Wrapper>
+      <button onClick={addTag}>新增标签</button>
       <ol>
         {tags.map(tag =>
           <li key={tag.id}
@@ -75,7 +77,6 @@ const TagsSection: React.FunctionComponent<Props> = (props) => {
             {tag.name}</li>
         )}
       </ol>
-      <button onClick={addTag}>新增标签</button>
     </Wrapper>
   );
 };
